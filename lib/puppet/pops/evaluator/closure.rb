@@ -270,7 +270,7 @@ class Closure < CallableSignature
           given_argument = args[index]
           if param_captures
             # get excess arguments
-            value = args[(parameter_count-1)..-1]
+            value = args[(parameter_count-1)..]
             # If the input was a single nil, or undef, and there is a default, use the default
             # This supports :undef in case it was used in a 3x data structure and it is passed as an arg
             #

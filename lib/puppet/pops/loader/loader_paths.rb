@@ -147,7 +147,7 @@ module LoaderPaths
       parts = typed_name.name_parts
       if start_index_in_name > 0
         return nil if start_index_in_name >= parts.size
-        parts = parts[start_index_in_name..-1]
+        parts = parts[start_index_in_name..]
       end
       "#{File.join(generic_path, parts)}#{extension}"
     end
@@ -370,7 +370,7 @@ module LoaderPaths
       parts = typed_name.name_parts
       if start_index_in_name > 0
         return nil if start_index_in_name >= parts.size
-        parts = parts[start_index_in_name..-1]
+        parts = parts[start_index_in_name..]
       end
       basename = File.join(generic_path, parts)
       @extensions.map { |ext| "#{basename}#{ext}" }

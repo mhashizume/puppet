@@ -690,7 +690,7 @@ class AccessOperator
         fail(Issues::ILLEGAL_HOSTCLASS_NAME, @semantic.keys[i], {:name => c}) unless c.is_a?(String)
         name = c.downcase
         # Remove leading '::' since all references are global, and 3x runtime does the wrong thing
-        name = name[2..-1] if name[0,2] == NS
+        name = name[2..] if name[0,2] == NS
 
         fail(Issues::ILLEGAL_NAME, @semantic.keys[i], {:name=>c}) unless name =~ Patterns::NAME
         Types::PClassType.new(name)

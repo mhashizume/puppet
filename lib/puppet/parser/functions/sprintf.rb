@@ -45,7 +45,7 @@ Puppet::Parser::Functions::newfunction(
 
 ) do |args|
   fmt = args[0]
-  args = args[1..-1]
+  args = args[1..]
   begin
     return sprintf(fmt, *args)
   rescue KeyError => e

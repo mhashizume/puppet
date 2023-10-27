@@ -569,12 +569,12 @@ private
 
     until i >= args.length
       if @stop_words.member? args[i]
-        remains += args[i .. -1]
+        remains += args[i ..]
         return remains
       end
       case args[i]
       when /^--$/ # arg terminator
-        remains += args[(i + 1) .. -1]
+        remains += args[(i + 1) ..]
         return remains
       when /^--(\S+?)=(.*)$/ # long argument with equals
         yield "--#{$1}", [$2]
@@ -585,7 +585,7 @@ private
           num_params_taken = yield args[i], params
           unless num_params_taken
             if @stop_on_unknown
-              remains += args[i + 1 .. -1]
+              remains += args[i + 1 ..]
               return remains
             else
               remains += params
@@ -605,7 +605,7 @@ private
               num_params_taken = yield "-#{a}", params
               unless num_params_taken
                 if @stop_on_unknown
-                  remains += args[i + 1 .. -1]
+                  remains += args[i + 1 ..]
                   return remains
                 else
                   remains += params
@@ -622,7 +622,7 @@ private
         end
       else
         if @stop_on_unknown
-          remains += args[i .. -1]
+          remains += args[i ..]
           return remains
         else
           remains << args[i]

@@ -114,7 +114,7 @@ module Utils
   end
 
   def self.relativize_name name
-    is_absolute?(name) ? name[2..-1] : name
+    is_absolute?(name) ? name[2..] : name
   end
 end
 end
